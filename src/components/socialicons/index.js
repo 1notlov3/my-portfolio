@@ -7,6 +7,9 @@ import {
   FaLinkedin,
   FaYoutube,
   FaTwitch,
+    FaInstagram,
+    FaTelegram,
+    FaVk
 } from "react-icons/fa";
 import { socialprofils } from "../../content_option";
 
@@ -14,10 +17,10 @@ export const Socialicons = (params) => {
   return (
     <div className="stick_follow_icon">
       <ul>
-        {socialprofils.twitter && (
+        {socialprofils.tg && (
           <li>
-            <a href={socialprofils.twitter}>
-              <FaTwitter />
+            <a href={socialprofils.tg}>
+              <FaTelegram />
             </a>
           </li>
         )}
@@ -28,17 +31,17 @@ export const Socialicons = (params) => {
             </a>
           </li>
         )}
-        {socialprofils.facebook && (
+        {socialprofils.instagram && (
           <li>
-            <a href={socialprofils.facebook}>
-              <FaFacebookF />
+            <a href={socialprofils.instagram}>
+              <FaInstagram />
             </a>
           </li>
         )}
-        {socialprofils.linkedin && (
+        {socialprofils.vk && (
           <li>
-            <a href={socialprofils.linkedin}>
-              <FaLinkedin />
+            <a href={socialprofils.vk}>
+              <FaVk />
             </a>
           </li>
         )}
@@ -57,7 +60,7 @@ export const Socialicons = (params) => {
           </li>
         )}
       </ul>
-      <p>Follow Me</p>
+      <p>Мои соц.сети</p>
     </div>
   );
 };

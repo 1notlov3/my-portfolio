@@ -47,6 +47,7 @@ section {
 .intro_sec .text,
 .intro_sec .h_bg-image {
     width: 50%;
+
 }
 
 @media (max-width:991.98px) {
@@ -59,6 +60,7 @@ section {
 .intro_sec .intro {
     max-width: 450px;
     margin: 0 auto;
+
 }
 
 @media (max-width:991.98px) {
@@ -94,8 +96,10 @@ section {
 .intro_sec .h_bg-image {
     background-size: cover;
     background-position: center;
-    min-height: 700px;
+    min-height: 500px;
     position: relative;
+    scale: 0.75;
+
 }
 
 .ac_btn {
@@ -192,21 +196,7 @@ section {
     justify-content: center;
 }
 
-@media (max-width:991.98px) {
-    .intro_sec .h_bg-image {
-        height: 600px;
-        min-height: 75vh;
-        margin-bottom: 30px;
-    }
-    .intro_sec .h_bg-image .block {
-        top: unset;
-        bottom: 0;
-        width: 100%;
-        margin: 0;
-        left: 50%;
-        transform: translate(-50%, 50%);
-    }
-}
+
 
 .intro_sec .h_bg-image .block .wrap-icon {
     font-size: 40px;
@@ -231,4 +221,18 @@ section {
 
 .intro_sec .h_bg-image {
     filter: saturate(0.5);
+}
+@media (max-width: 1000.98px) {
+    .intro_sec .h_bg-image {
+        height: 100px; /* Устанавливаем новую высоту блока для мобильных устройств */
+    }
+
+    .intro_sec .h_bg-image .block {
+        height: 20px; /* Устанавливаем новую высоту блоба внутри блока */
+        max-width: 20px; /* Устанавливаем новую максимальную ширину блоба */
+        padding: 15px; /* Устанавливаем новый внутренний отступ блоба */
+    }
+    .ac_btn {
+        margin-right: 5px;
+    }
 }
