@@ -1,4 +1,10 @@
-import blob from './assets/images/blob.svg';
+// Import images
+import sberImage from './assets/images/sber.jpg';
+import tarnishedImage from './assets/images/tarnished.jpg';
+import realmImage from './assets/images/realm.jpg';
+import technomartImage from './assets/images/technomart.jpg';
+import yetiImage from './assets/images/yeti.jpg';
+import coffeImage from './assets/images/coffe.jpg';
 const logotext = "<1notlov3/>";
 const meta = {
     title: "Портфолио Грачева Максима",
@@ -50,24 +56,43 @@ const skills = [{
 
 
 
-// Import images
-import sberImage from './assets/images/sber.jpg';
-import tarnishedImage from './assets/images/tarnished.jpg';
-import realmImage from './assets/images/realm.jpg';
-import technomartImage from './assets/images/technomart.jpg';
+
 const dataportfolio = [
     {
         title: "Sber.py",
         img: sberImage,
         description: "Простой клон приложения сбербанка, написанный на Python, с использованием базы данных Access",
-        link: "#",
+        link: "https://youtu.be/EoD5zvQSYwg",
     },
+
+
+
+
     {
         title: "Tarnished",
         img: tarnishedImage,
         description: "Моя первая action-rpg разработанная на Ue4, с прокачкой уровня, магазином и боссами",
-        link: "#",
+        link: "https://youtu.be/cZjISttNTu8?si=Qw9wzPwa1KWSbD4x",
     },
+    {
+        title: "Technomart",
+        img: technomartImage,
+        description: "Сайт магазина строй-материалов и перфораторов",
+        link: "https://1notlov3.github.io/Technomart_1notlov3",
+
+
+    },
+    {
+        title: "Coffe Shop",
+        img: coffeImage,
+        description: "Приложение администратора кофейни написанное на Python",
+        link: "https://youtu.be/ydrZuMrKGpo",
+
+
+    },
+
+
+
     {
         title: "Realm of shadows",
         img: realmImage,
@@ -75,11 +100,14 @@ const dataportfolio = [
         link: "#",
     },
     {
-        title: "Technomart",
-        img: technomartImage,
-        description: "Сайт магазина строй-материалов и перфораторов",
-        link: "#",
+        title: "Yeticave",
+        img: yetiImage,
+        description: "Сайт магазина товаров для горнолыжного спорта",
+        link: "https://1notlov3.github.io/1notlov3_yeticave",
+
+
     },
+
 ];
 
 // ... rest of your code remains unchanged
