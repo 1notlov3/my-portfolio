@@ -1,4 +1,6 @@
 {
+    "homepage": "https://1notlov3.github.io/my-portfolio",
+
     "name": "react-portfolio",
     "version": "0.1.0",
     "private": true,
@@ -43,5 +45,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "gh-pages": "^6.0.0"
     }
 }
