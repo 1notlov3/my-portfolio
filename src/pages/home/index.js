@@ -41,7 +41,7 @@ success!
       index++;
 
       if (index < initialCode.length) {
-        setTimeout(addNextCharacter, 10); // Adjust the typing speed
+        setTimeout(addNextCharacter, 15); // Adjust the typing speed
       } else {
         // После набора кода, стираем его и плавно показываем изображение
         setTimeout(() => {

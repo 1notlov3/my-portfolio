@@ -253,9 +253,17 @@ section {
         object-fit: fill;
         margin-top: 50px;
         margin-bottom: 50px;
-        scale: 1.1;
+        scale: 0.95;
     }
-
+    .intro_sec .h_bg-image pre {
+        overflow: hidden;
+        white-space: pre-wrap;
+        z-index: 2;
+        font-size: 14px;
+        font-weight: 700;
+        align-self: center;
+        margin: 60px;
+    }
     .intro_sec .h_bg-image {
         background-size: cover;
         background-position: center;
