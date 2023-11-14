@@ -8,6 +8,15 @@
     --overlay-color: rgb(12 12 12 / 63%);
 }
 
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --primary-color: #ffffff;
+    --secondary-color: #000;
+    --text-color: #000;
+    --text-color-2: #000;
+    --text-color-3: rgb(204, 0, 0);
+    --overlay-color: rgb(255 255 255 / 70%);
+}
 
 html,
 body {
