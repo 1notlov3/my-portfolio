@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/my-portfolio/static/css/main.e625edfb.css",
-    "main.js": "/my-portfolio/static/js/main.6222c49d.js",
+    "main.css": "/my-portfolio/static/css/main.45219187.css",
+    "main.js": "/my-portfolio/static/js/main.df5e9ba5.js",
     "static/media/sber.jpg": "/my-portfolio/static/media/sber.b429f9a4b06b4a9d78d0.jpg",
     "static/media/tarnished.jpg": "/my-portfolio/static/media/tarnished.5ecdb04d237a228de3b1.jpg",
     "static/media/yeti.jpg": "/my-portfolio/static/media/yeti.bae48704a9c7ea4b5bc8.jpg",
@@ -9,10 +9,11 @@
     "static/media/coffe.jpg": "/my-portfolio/static/media/coffe.71ed8c878ea98d612ba0.jpg",
     "static/media/realm.jpg": "/my-portfolio/static/media/realm.c499262a4134b69706d4.jpg",
     "static/media/me.jpg": "/my-portfolio/static/media/me.c47914aaad66fe66e0b4.jpg",
+    "static/media/Максим Грачев.pdf": "/my-portfolio/static/media/Максим Грачев.beb1aacb553a0895dcde.pdf",
     "index.html": "/my-portfolio/index.html"
   },
   "entrypoints": [
-    "static/css/main.e625edfb.css",
-    "static/js/main.6222c49d.js"
+    "static/css/main.45219187.css",
+    "static/js/main.df5e9ba5.js"
   ]
 }
