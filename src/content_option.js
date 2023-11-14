@@ -5,6 +5,7 @@ import realmImage from './assets/images/realm.jpg';
 import technomartImage from './assets/images/technomart.jpg';
 import yetiImage from './assets/images/yeti.jpg';
 import coffeImage from './assets/images/coffe.jpg';
+import blobImage from './assets/images/me.jpg';
 const logotext = "<1notlov3/>";
 const meta = {
     title: "Портфолио Грачева Максима",
@@ -20,7 +21,7 @@ const introdata = {
 
     },
 
-    your_img_url: "https://svgshare.com/i/zeB.svg",
+    your_img_url: blobImage
 };
 
 const dataabout = {

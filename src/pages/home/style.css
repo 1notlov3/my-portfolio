@@ -84,23 +84,46 @@ section {
 
 .intro_sec .text h1 {
     font-size: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     font-weight: 700;
 }
-
+.intro_sec .text h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
 .intro_sec .text h3 {
     font-size: 16px;
     font-weight: 700;
 }
 
-.intro_sec .h_bg-image {
+.intro_sec .h_bg-image img {
     background-size: cover;
     background-position: center;
-    min-height: 500px;
     position: relative;
+    border-radius: 10%;
+    overflow: hidden;
     scale: 0.75;
+    z-index: 1;
 
 }
+
+.intro_sec .h_bg-image {
+    margin-bottom: 30px;
+    overflow: hidden;
+
+}
+.intro_sec .h_bg-image pre {
+    overflow: hidden;
+    z-index: 2;
+    font-size: 14px;
+    font-weight: 700;
+    align-self: center;
+    margin: 60px;
+}
+
+
+
 
 .ac_btn {
     padding: 4px 19px;
@@ -194,6 +217,7 @@ section {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+
 }
 
 
@@ -223,16 +247,40 @@ section {
     filter: saturate(0.5);
 }
 @media (max-width: 1000.98px) {
-    .intro_sec .h_bg-image {
-        height: 100px; /* Устанавливаем новую высоту блока для мобильных устройств */
+    .intro_sec .h_bg-image img {
+        overflow: hidden;
+        height: 400px;
+        object-fit: fill;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        scale: 1.1;
     }
 
-    .intro_sec .h_bg-image .block {
-        height: 20px; /* Устанавливаем новую высоту блоба внутри блока */
-        max-width: 20px; /* Устанавливаем новую максимальную ширину блоба */
-        padding: 15px; /* Устанавливаем новый внутренний отступ блоба */
+    .intro_sec .h_bg-image {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        border-radius: 10%;
+        overflow: hidden;
+        z-index: 1;
+
     }
     .ac_btn {
         margin-right: 5px;
+        margin-top: 10px ;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation ease-in-out 1.5s forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
