@@ -1,21 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
 :root {
-    --bg-color: #0c0c0c;
-    --primary-color: #0d0d0d;
-    --secondary-color: #fff;
-    --text-color: #fff;
-    --text-color-2: #fff;
-    --text-color-3: rgb(204, 0, 0);
-    --overlay-color: rgb(12 12 12 / 63%);
+    --bg-color: #0b0d12;
+    --primary-color: #0b0d12;
+    --secondary-color: #f8fafc;
+    --text-color: #f8fafc;
+    --text-color-2: #f8fafc;
+    --text-color-3: #6366f1;
+    --overlay-color: rgb(15 23 42 / 70%);
+    --surface-raised: #111827;
+    --surface-muted: #0f172a;
+    --muted-text: #94a3b8;
+    --accent-color: #6366f1;
+    --accent-hover: #818cf8;
+    --accent-bright: #22d3ee;
+    --border-color: #1f2937;
+    --text-on-accent: #ffffff;
 }
 
 [data-theme="light"] {
-    --bg-color: #ffffff;
-    --primary-color: #ffffff;
-    --secondary-color: #000;
-    --text-color: #000;
-    --text-color-2: #000;
-    --text-color-3: rgb(204, 0, 0);
-    --overlay-color: rgb(255 255 255 / 70%);
+    --bg-color: #f8fafc;
+    --primary-color: #f8fafc;
+    --secondary-color: #0f172a;
+    --text-color: #0f172a;
+    --text-color-2: #0f172a;
+    --text-color-3: #4f46e5;
+    --overlay-color: rgb(248 250 252 / 70%);
+    --surface-raised: #ffffff;
+    --surface-muted: #eef2f7;
+    --muted-text: #475569;
+    --accent-color: #4f46e5;
+    --accent-hover: #4338ca;
+    --accent-bright: #0ea5e9;
+    --border-color: #e2e8f0;
+    --text-on-accent: #ffffff;
 }
 
 html,
@@ -30,12 +48,14 @@ body {
     overflow-y: visible;
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Manrope', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding-top: 60px;
-    border-left: 10px solid var(--primary-color);
-    border-right: 10px solid var(--primary-color);
+    padding-top: 90px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 ul {
@@ -48,7 +68,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Marcellus;
+    font-family: 'Playfair Display', serif;
 }
 
 a,

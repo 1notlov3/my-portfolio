@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
 import { VscGrabber, VscClose } from "react-icons/vsc";
-import { Link } from "react-router-dom";
 import { logotext ,socialprofils } from "../content_option";
 import Themetoggle from "../components/themetoggle";
 import pdf from "../assets/Максим Грачев.pdf"
@@ -18,9 +17,9 @@ const Headermain = () => {
     <>
       <header className="fixed-top site__header">
         <div className="d-flex align-items-center justify-content-between">
-          <Link  className="navbar-brand nav_ac" to="/">
+          <a className="navbar-brand nav_ac" href="#home">
             {logotext}
-          </Link>
+          </a>
           <div className="d-flex align-items-center">
             <Themetoggle/>
           <button className="menu__button  nav_ac" onClick={handleToggle}>
@@ -36,16 +35,19 @@ const Headermain = () => {
               <div className="menu__container p-3">
                 <ul className="the_menu">
                   <li className="menu_item ">
-                  <Link  onClick={handleToggle} to="/" className="my-3">Главная</Link>
+                  <a onClick={handleToggle} href="#home" className="my-3">Главная</a>
                   </li>
                   <li className="menu_item">
-                    <Link  onClick={handleToggle} to="/about" className="my-3"> Обо мне</Link>
+                    <a onClick={handleToggle} href="#skills" className="my-3"> Навыки</a>
                   </li>
                   <li className="menu_item">
-                  <Link onClick={handleToggle} to="/portfolio" className="my-3">Портфолио</Link>
+                  <a onClick={handleToggle} href="#projects" className="my-3">Проекты</a>
                   </li>
                   <li className="menu_item">
-                  <Link onClick={handleToggle} to="/contact" className="my-3"> Контакты</Link>
+                  <a onClick={handleToggle} href="#about" className="my-3">Обо мне</a>
+                  </li>
+                  <li className="menu_item">
+                  <a onClick={handleToggle} href="#contact" className="my-3">Контакты</a>
                   </li>
                   <li className="menu_item">
                     <a href={pdf}>Резюме</a>
@@ -64,11 +66,6 @@ const Headermain = () => {
           </div>
         </div>
       </header>
-      <div className="br-top"></div>
-      <div className="br-bottom"></div>
-      <div className="br-left"></div>
-      <div className="br-right"></div>
-      
     </>
   );
 };

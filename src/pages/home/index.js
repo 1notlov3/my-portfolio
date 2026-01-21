@@ -1,131 +1,165 @@
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
-import { introdata, meta } from "../../content_option";
-import { Link } from "react-router-dom";
+import {
+  introdata,
+  meta,
+  dataabout,
+  skills,
+  dataportfolio,
+  contactConfig,
+  socialprofils,
+} from "../../content_option";
 
 export const Home = () => {
-  const [code, setCode] = useState("");
-  const [showImage, setShowImage] = useState(false);
-
-  useEffect(() => {
-    const initialCode = `function retrieveInterstellarImage() {
-  let cosmicData = [];
-  for (let i = 0; i < 1000; i++) {
-    cosmicData.push(Math.random() * 255);
-  }
-
-  let processedData = cosmicData.map(value => Math.pow(value, 1.8));
-
-
-  async function receiveInterstellarImage() {
-    let transmittedData = await transmitInterstellarData(processedData);
-    let renderedImage = transmittedData.map(value => String.fromCharCode(Math.floor(value)));
-    console.log(renderedImage.join(''));
-  }
-
-  receiveInterstellarImage();
-}
-
-retrieveInterstellarImage();
-connecting...
-success!
-`;
-
-    let index = 0;
-
-    const addNextCharacter = () => {
-      setCode((prevCode) => prevCode + initialCode.charAt(index));
-      index++;
-
-      if (index < initialCode.length) {
-        setTimeout(addNextCharacter, 15); // Adjust the typing speed
-      } else {
-        // После набора кода, стираем его и плавно показываем изображение
-        setTimeout(() => {
-          setCode(""); // Очищаем код
-          setShowImage(true);
-        }, 250); // Задержка перед показом изображения
-      }
-    };
-
-    addNextCharacter();
-  }, []);
-
   return (
-      <HelmetProvider>
-        <section id="home" className="home">
-          <Helmet>
-            <meta charSet="utf-8" />
-            <title>{meta.title}</title>
-            <meta name="description" content={meta.description} />
-          </Helmet>
-          <div className="intro_sec d-block d-lg-flex align-items-center ">
-            <div className="h_bg-image order-1 order-lg-2 h-100">
-              {showImage ? (
-                  <img
-                      className="fade-in"
-                      src={introdata.your_img_url}
-
-                  />
-              ) : (
-                  <pre>{code}</pre>
-              )}
+    <HelmetProvider>
+      <main className="portfolio-home">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+        </Helmet>
+        <section className="hero" id="home">
+          <div className="hero__content">
+            <p className="hero__eyebrow">Full-stack & Game Developer</p>
+            <h1>{introdata.title}</h1>
+            <div className="hero__roles">
+              <Typewriter
+                options={{
+                  strings: [
+                    introdata.animated.first,
+                    introdata.animated.second,
+                    introdata.animated.third,
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  deleteSpeed: 10,
+                }}
+              />
             </div>
-            <div className="text order-2 order-lg-1 h-200 d-lg-flex justify-content-center">
-              <div className="align-self-center ">
-                <div className="intro mx-auto">
-                  <h1 className="mb-1x">{introdata.title}</h1>
-                  {showImage && (
-                      <h2 className="fluidz-48 mb-1x">
-                        <Typewriter
-                            options={{
-                              strings: [
-                                introdata.animated.first,
-                                introdata.animated.second,
-                                introdata.animated.third,
-                              ],
-                              autoStart: true,
-                              loop: true,
-                              deleteSpeed: 10,
-                            }}
-                        />
-                      </h2>
-                  )}
-                  <div className="intro_btn-action pb-5">
-                    <Link to="/about" className="text_2">
-                      <div id="button_p" className="ac_btn btn ">
-                        Обо Мне
-                        <div className="ring one"></div>
-                        <div className="ring two"></div>
-                        <div className="ring three"></div>
-                      </div>
-                    </Link>
-
-                    <Link to="/portfolio">
-                      <div id="button_h" className="ac_btn btn">
-                        Портфолио
-                        <div className="ring one"></div>
-                        <div className="ring two"></div>
-                        <div className="ring three"></div>
-                      </div>
-                    </Link>
-                    <Link to="/contact">
-                      <div id="button_h" className="ac_btn btn">
-                        Контакты
-                        <div className="ring one"></div>
-                        <div className="ring two"></div>
-                        <div className="ring three"></div>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
+            <p className="hero__lead">{dataabout.aboutme}</p>
+            <div className="hero__actions">
+              <a className="btn btn-primary" href="#projects">
+                Смотреть проекты
+              </a>
+              <a className="btn btn-secondary" href="#contact">
+                Связаться
+              </a>
+            </div>
+            <div className="hero__meta">
+              <div>
+                <span className="hero__meta-title">Локация</span>
+                <span>Россия</span>
+              </div>
+              <div>
+                <span className="hero__meta-title">Фокус</span>
+                <span>Web, Game, Desktop</span>
+              </div>
+              <div>
+                <span className="hero__meta-title">Опыт</span>
+                <span>Стажер / Junior</span>
               </div>
             </div>
           </div>
+          <div className="hero__media">
+            <div className="hero__image-wrapper">
+              <img src={introdata.your_img_url} alt="Портрет" />
+            </div>
+            <div className="hero__highlight">
+              <p>{dataabout.aboutme2}</p>
+            </div>
+          </div>
         </section>
-      </HelmetProvider>
+
+        <section className="section" id="skills">
+          <div className="section__header">
+            <span className="section__eyebrow">Навыки</span>
+            <h2>Технологии, которые использую каждый день</h2>
+            <p>Сосредоточен на практических решениях и стабильной архитектуре.</p>
+          </div>
+          <div className="skills-grid">
+            {skills.map((skill) => (
+              <div key={skill.name} className="skill-card">
+                <div className="skill-card__top">
+                  <h3>{skill.name}</h3>
+                  <span>{skill.value}%</span>
+                </div>
+                <div className="skill-card__bar">
+                  <span style={{ width: `${skill.value}%` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section section--muted" id="projects">
+          <div className="section__header">
+            <span className="section__eyebrow">Проекты</span>
+            <h2>Реальные кейсы и игровые прототипы</h2>
+            <p>Собрал подборку проектов, которыми горжусь.</p>
+          </div>
+          <div className="projects-grid">
+            {dataportfolio.map((project) => (
+              <article key={project.title} className="project-card">
+                <div className="project-card__media">
+                  <img src={project.img} alt={project.title} />
+                </div>
+                <div className="project-card__body">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <a
+                    className="project-card__link"
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Смотреть проект
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section" id="about">
+          <div className="section__header">
+            <span className="section__eyebrow">Обо мне</span>
+            <h2>{dataabout.title}</h2>
+          </div>
+          <div className="about-grid">
+            <div className="about-card">
+              <h3>{dataabout.title}</h3>
+              <p>{dataabout.aboutme}</p>
+            </div>
+            <div className="about-card">
+              <h3>{dataabout.title2}</h3>
+              <p>{dataabout.aboutme2}</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section--cta" id="contact">
+          <div className="cta-card">
+            <div>
+              <span className="section__eyebrow">Контакты</span>
+              <h2>Давайте обсудим новый проект</h2>
+              <p>{contactConfig.description}</p>
+            </div>
+            <div className="cta-card__links">
+              <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
+                {contactConfig.YOUR_EMAIL}
+              </a>
+              <span>{contactConfig.YOUR_FONE}</span>
+              <a href={socialprofils.tg}>Telegram</a>
+              <a href={socialprofils.github}>GitHub</a>
+              <a href={socialprofils.vk}>VK</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </HelmetProvider>
   );
 };
