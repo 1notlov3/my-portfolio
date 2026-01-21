@@ -7,45 +7,70 @@ import Themetoggle from "../components/themetoggle";
 import pdf from "../assets/Максим Грачев.pdf"
 
 const Headermain = () => {
-  const [isActive, setActive] = useState("false");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleToggle = () => {
-    setActive(!isActive);
+    setMenuOpen((prevState) => !prevState);
     document.body.classList.toggle("ovhidden");
+  };
+
+  const handleNavClick = (sectionId) => {
+    if (menuOpen) {
+      setMenuOpen(false);
+      document.body.classList.remove("ovhidden");
+    }
+
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
     <>
       <header className="fixed-top site__header">
         <div className="d-flex align-items-center justify-content-between">
-          <Link  className="navbar-brand nav_ac" to="/">
+          <Link className="navbar-brand nav_ac" to="/">
             {logotext}
           </Link>
           <div className="d-flex align-items-center">
             <Themetoggle/>
           <button className="menu__button  nav_ac" onClick={handleToggle}>
-            {!isActive ? <VscClose /> : <VscGrabber />}
+            {menuOpen ? <VscClose /> : <VscGrabber />}
           </button>
           
           </div>
         </div>
 
-        <div className={`site__navigation ${!isActive ? "menu__opend" : ""}`}>
+        <div className={`site__navigation ${menuOpen ? "menu__opend" : ""}`}>
           <div className="bg__menu h-100">
             <div className="menu__wrapper">
               <div className="menu__container p-3">
                 <ul className="the_menu">
                   <li className="menu_item ">
-                  <Link  onClick={handleToggle} to="/" className="my-3">Главная</Link>
+                    <button type="button" onClick={() => handleNavClick("home")} className="my-3 menu_link">
+                      Главная
+                    </button>
                   </li>
                   <li className="menu_item">
-                    <Link  onClick={handleToggle} to="/about" className="my-3"> Обо мне</Link>
+                    <button type="button" onClick={() => handleNavClick("about")} className="my-3 menu_link">
+                      Обо мне
+                    </button>
                   </li>
                   <li className="menu_item">
-                  <Link onClick={handleToggle} to="/portfolio" className="my-3">Портфолио</Link>
+                    <button type="button" onClick={() => handleNavClick("skills")} className="my-3 menu_link">
+                      Навыки
+                    </button>
                   </li>
                   <li className="menu_item">
-                  <Link onClick={handleToggle} to="/contact" className="my-3"> Контакты</Link>
+                    <button type="button" onClick={() => handleNavClick("projects")} className="my-3 menu_link">
+                      Проекты
+                    </button>
+                  </li>
+                  <li className="menu_item">
+                    <button type="button" onClick={() => handleNavClick("contact")} className="my-3 menu_link">
+                      Контакты
+                    </button>
                   </li>
                   <li className="menu_item">
                     <a href={pdf}>Резюме</a>
@@ -64,11 +89,6 @@ const Headermain = () => {
           </div>
         </div>
       </header>
-      <div className="br-top"></div>
-      <div className="br-bottom"></div>
-      <div className="br-left"></div>
-      <div className="br-right"></div>
-      
     </>
   );
 };
