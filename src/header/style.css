@@ -1,7 +1,7 @@
 .site__header {
-    top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    top: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .menu__button {
@@ -22,21 +22,32 @@
 }
 
 .nav_ac {
-    padding: 5px 15px;
+    padding: 6px 16px;
     margin: 0;
-    border: unset;
-    background: var(--primary-color);
-    font-size: 1.25rem;
-    font-family: Marcellus;
+    border: 1px solid var(--glass-border);
+    background: var(--panel-color);
+    font-size: 1.1rem;
+    font-family: "Playfair Display", serif;
     color: var(--text-color-2);
     line-height: 2;
-    height: 50px;
-    font-weight: bold;
+    height: 48px;
+    font-weight: 600;
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
     z-index: 1000;
+    transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
-.nav_ac:hover {
+.nav_button {
+    cursor: pointer;
+}
+
+.nav_ac:hover,
+.nav_ac:focus-visible {
     color: var(--text-color-2);
+    border-color: rgba(126, 155, 246, 0.6);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+    transform: translateY(-1px);
 }
 
 .br-top,
@@ -50,7 +61,7 @@
 
 .br-top {
     top: 0;
-    height: 10px;
+    height: 8px;
     left: 0;
     width: 100%;
 }
@@ -58,19 +69,19 @@
 .br-bottom {
     bottom: 0;
     left: 0;
-    height: 10px;
+    height: 8px;
     width: 100%;
 }
 
 .br-right {
-    width: 10px;
+    width: 8px;
     right: 0;
     top: 0;
     height: 100%;
 }
 
 .br-left {
-    width: 10px;
+    width: 8px;
     left: 0;
     top: 0;
     height: 100%;
@@ -138,10 +149,11 @@
     top: 0px;
     width: 100%;
     height: 100%;
-    background-color: var(--primary-color);
+    background: var(--panel-color);
+    backdrop-filter: blur(28px);
     will-change: transform;
     transform: translateY(-100%);
-    transition: .5s ease all;
+    transition: 0.5s ease all;
 }
 
 .menu__opend .bg__menu {
@@ -156,8 +168,8 @@
 }
 
 .the_menu {
-    padding-top: 20vh;
-    padding-bottom: 20vh;
+    padding-top: 18vh;
+    padding-bottom: 18vh;
     padding-left: 0;
 }
 
@@ -166,12 +178,13 @@
         margin-left: 33.3333%;
     }
     .the_menu {
-        padding-top: 10vh;
-        padding-bottom: 10vh;
+        padding-top: 12vh;
+        padding-bottom: 12vh;
     }
 }
 
-.the_menu .menu_item>a {
+.the_menu .menu_item > a,
+.the_menu .menu_item > .menu_link {
     color: var(--text-color-2);
     line-height: 1;
     font-size: 2rem;
@@ -180,24 +193,31 @@
     transition: color 250ms cubic-bezier(0, 0, 0.58, 1) 0s;
     padding: 4px 0px;
     text-decoration: none;
-    font-family: Marcellus;
+    font-family: "Playfair Display", serif;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
-.the_menu .menu_item>a:hover {
+.the_menu .menu_item > a:hover,
+.the_menu .menu_item > .menu_link:hover,
+.the_menu .menu_item > a:focus-visible,
+.the_menu .menu_item > .menu_link:focus-visible {
     color: var(--text-color-3);
 }
 
 @media (min-width: 768px) {
-    .the_menu .menu_item>a {
-        font-size: 4.8vw;
+    .the_menu .menu_item > a,
+    .the_menu .menu_item > .menu_link {
+        font-size: 4.2vw;
     }
 }
 
 .menu_footer {
     bottom: 0;
-    font-family: Marcellus;
+    font-family: "Manrope", sans-serif;
     font-size: 14px;
-    background: var(--primary-color);
+    background: var(--panel-color);
 }
 
 .menu_footer a {

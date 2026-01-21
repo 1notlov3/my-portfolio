@@ -1,131 +1,239 @@
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import Typewriter from "typewriter-effect";
-import { introdata, meta } from "../../content_option";
-import { Link } from "react-router-dom";
+import {
+  introdata,
+  meta,
+  dataabout,
+  skills,
+  dataportfolio,
+  contactConfig,
+  socialprofils,
+} from "../../content_option";
 
 export const Home = () => {
-  const [code, setCode] = useState("");
-  const [showImage, setShowImage] = useState(false);
-
-  useEffect(() => {
-    const initialCode = `function retrieveInterstellarImage() {
-  let cosmicData = [];
-  for (let i = 0; i < 1000; i++) {
-    cosmicData.push(Math.random() * 255);
-  }
-
-  let processedData = cosmicData.map(value => Math.pow(value, 1.8));
-
-
-  async function receiveInterstellarImage() {
-    let transmittedData = await transmitInterstellarData(processedData);
-    let renderedImage = transmittedData.map(value => String.fromCharCode(Math.floor(value)));
-    console.log(renderedImage.join(''));
-  }
-
-  receiveInterstellarImage();
-}
-
-retrieveInterstellarImage();
-connecting...
-success!
-`;
-
-    let index = 0;
-
-    const addNextCharacter = () => {
-      setCode((prevCode) => prevCode + initialCode.charAt(index));
-      index++;
-
-      if (index < initialCode.length) {
-        setTimeout(addNextCharacter, 15); // Adjust the typing speed
-      } else {
-        // После набора кода, стираем его и плавно показываем изображение
-        setTimeout(() => {
-          setCode(""); // Очищаем код
-          setShowImage(true);
-        }, 250); // Задержка перед показом изображения
-      }
-    };
-
-    addNextCharacter();
-  }, []);
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
-      <HelmetProvider>
-        <section id="home" className="home">
-          <Helmet>
-            <meta charSet="utf-8" />
-            <title>{meta.title}</title>
-            <meta name="description" content={meta.description} />
-          </Helmet>
-          <div className="intro_sec d-block d-lg-flex align-items-center ">
-            <div className="h_bg-image order-1 order-lg-2 h-100">
-              {showImage ? (
-                  <img
-                      className="fade-in"
-                      src={introdata.your_img_url}
+    <HelmetProvider>
+      <main className="portfolio" id="top">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+        </Helmet>
 
-                  />
-              ) : (
-                  <pre>{code}</pre>
-              )}
+        <section className="section hero" aria-labelledby="hero-title">
+          <div className="container hero-grid">
+            <div className="hero-copy">
+              <p className="section-subtitle">портфолио</p>
+              <h1 id="hero-title" className="hero-title">
+                {introdata.title}
+              </h1>
+              <p className="hero-lead">
+                Full-stack и game developer. Проектирую интерфейсы, пишу бекенд,
+                создаю игровые механики и довожу идеи до работающего продукта.
+              </p>
+              <div className="hero-actions">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={() => scrollToSection("projects")}
+                >
+                  Смотреть проекты
+                </button>
+                <button
+                  className="btn btn-secondary"
+                  type="button"
+                  onClick={() => scrollToSection("contact")}
+                >
+                  Связаться
+                </button>
+              </div>
+              <div className="hero-highlights">
+                {introdata.animated && (
+                  <>
+                    <div className="highlight-card">
+                      <p className="highlight-title">Фокус</p>
+                      <p className="highlight-text">{introdata.animated.first}</p>
+                    </div>
+                    <div className="highlight-card">
+                      <p className="highlight-title">Игры</p>
+                      <p className="highlight-text">{introdata.animated.second}</p>
+                    </div>
+                    <div className="highlight-card">
+                      <p className="highlight-title">Подход</p>
+                      <p className="highlight-text">{introdata.animated.third}</p>
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
-            <div className="text order-2 order-lg-1 h-200 d-lg-flex justify-content-center">
-              <div className="align-self-center ">
-                <div className="intro mx-auto">
-                  <h1 className="mb-1x">{introdata.title}</h1>
-                  {showImage && (
-                      <h2 className="fluidz-48 mb-1x">
-                        <Typewriter
-                            options={{
-                              strings: [
-                                introdata.animated.first,
-                                introdata.animated.second,
-                                introdata.animated.third,
-                              ],
-                              autoStart: true,
-                              loop: true,
-                              deleteSpeed: 10,
-                            }}
-                        />
-                      </h2>
-                  )}
-                  <div className="intro_btn-action pb-5">
-                    <Link to="/about" className="text_2">
-                      <div id="button_p" className="ac_btn btn ">
-                        Обо Мне
-                        <div className="ring one"></div>
-                        <div className="ring two"></div>
-                        <div className="ring three"></div>
-                      </div>
-                    </Link>
-
-                    <Link to="/portfolio">
-                      <div id="button_h" className="ac_btn btn">
-                        Портфолио
-                        <div className="ring one"></div>
-                        <div className="ring two"></div>
-                        <div className="ring three"></div>
-                      </div>
-                    </Link>
-                    <Link to="/contact">
-                      <div id="button_h" className="ac_btn btn">
-                        Контакты
-                        <div className="ring one"></div>
-                        <div className="ring two"></div>
-                        <div className="ring three"></div>
-                      </div>
-                    </Link>
-                  </div>
+            <div className="hero-visual">
+              <div className="hero-card">
+                <img
+                  src={introdata.your_img_url}
+                  alt="Портрет Максима Грачева"
+                  className="hero-image"
+                />
+                <div className="hero-card-content">
+                  <p className="hero-card-title">Открыт к проектам</p>
+                  <p className="hero-card-text">
+                    Работал с вебом, играми и приложениями. Беру идеи от прототипа
+                    до релиза.
+                  </p>
+                  <button
+                    className="btn btn-ghost"
+                    type="button"
+                    onClick={() => scrollToSection("contact")}
+                  >
+                    Написать мне
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </HelmetProvider>
+
+        <section className="section" id="about" aria-labelledby="about-title">
+          <div className="container about-grid">
+            <div>
+              <p className="section-subtitle">о себе</p>
+              <h2 id="about-title" className="section-title">
+                {dataabout.title}
+              </h2>
+              <p className="section-text">{dataabout.aboutme}</p>
+            </div>
+            <div className="about-card">
+              <h3 className="about-card-title">{dataabout.title2}</h3>
+              <p className="section-text about-card-text">
+                {dataabout.aboutme2}
+              </p>
+              <div className="about-tags">
+                <span>Unity</span>
+                <span>Unreal Engine</span>
+                <span>Web apps</span>
+                <span>API</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="skills" aria-labelledby="skills-title">
+          <div className="container">
+            <p className="section-subtitle">навыки</p>
+            <h2 id="skills-title" className="section-title">
+              Скиллы, с которыми работаю каждый день
+            </h2>
+            <div className="skills-grid">
+              {skills.map((skill) => (
+                <div className="skill-card" key={skill.name}>
+                  <div className="skill-header">
+                    <h3>{skill.name}</h3>
+                    <span>{skill.value}%</span>
+                  </div>
+                  <div
+                    className="skill-bar"
+                    role="progressbar"
+                    aria-valuenow={skill.value}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <span style={{ width: `${skill.value}%` }}></span>
+                  </div>
+                  <p className="skill-note">
+                    Практика на реальных проектах и пет-проектах.
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="section"
+          id="projects"
+          aria-labelledby="projects-title"
+        >
+          <div className="container">
+            <p className="section-subtitle">портфолио</p>
+            <h2 id="projects-title" className="section-title">
+              Избранные проекты
+            </h2>
+            <div className="projects-grid">
+              {dataportfolio.map((project) => (
+                <a
+                  key={project.title}
+                  className="project-card"
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="project-image">
+                    <img src={project.img} alt={project.title} />
+                  </div>
+                  <div className="project-content">
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <span className="project-link">Открыть проект</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="section contact"
+          id="contact"
+          aria-labelledby="contact-title"
+        >
+          <div className="container contact-grid">
+            <div>
+              <p className="section-subtitle">контакт</p>
+              <h2 id="contact-title" className="section-title">
+                Давайте обсудим ваш проект
+              </h2>
+              <p className="section-text">{contactConfig.description}</p>
+              <div className="contact-info">
+                <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
+                  {contactConfig.YOUR_EMAIL}
+                </a>
+                <a href={socialprofils.tg}>Telegram: {contactConfig.YOUR_FONE}</a>
+              </div>
+            </div>
+            <div className="contact-card">
+              <h3>Соцсети</h3>
+              <ul>
+                <li>
+                  <a href={socialprofils.github}>GitHub</a>
+                </li>
+                <li>
+                  <a href={socialprofils.vk}>VK</a>
+                </li>
+                <li>
+                  <a href={socialprofils.instagram}>Instagram</a>
+                </li>
+                <li>
+                  <a href={socialprofils.tg}>Telegram</a>
+                </li>
+              </ul>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => scrollToSection("top")}
+              >
+                Наверх страницы
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </HelmetProvider>
   );
 };
